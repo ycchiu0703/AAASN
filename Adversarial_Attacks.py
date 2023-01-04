@@ -33,13 +33,16 @@ for i in range(len(train_labels)):
 mlflow.set_experiment("Adversarial_Attacks")
 mlflow.start_run(run_name = 'Perturbation Test')
 
+## Add Perturbation
 for perturbation in range(0, 301, 10):
     test_samples = []
     for test_img in test_imgs:
         for i in range(len(test_img)):
             test_img[i][-1] = perturbation
         test_samples.append(test_img / max_data)
-
+    
+    
+    ## Calculate Benign ASR
     ben_test_result = []
     ben_ASR = 0
     for test_sample in test_samples:
@@ -55,6 +58,7 @@ for perturbation in range(0, 301, 10):
 
     mlflow.log_metric("benign_ASR", ben_ASR, step = perturbation)
 
+    ## Calculate Malware ASR
     mal_test_result = []
     mal_ASR = 0
     for test_sample in test_samples:
