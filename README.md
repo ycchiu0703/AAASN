@@ -147,7 +147,7 @@ $$ASR_{ben} = \cfrac {1}{N_a}\sum\limits_{i=0}^{N_{a}} [[\sum\limits_{j=0}^{N_{b
 
 We also tried using the same method to test the results of the malicious samples in the training set, with the difference being that we determined whether they were "dissimilar" to the malicious samples. The specific calculation can be expressed as the following formula:
 
-$$ASR_{mal} = \cfrac {1}{N_a}\sum\limits_{i=0}^{N_{a}} [![ \sum\limits_{j=0}^{N_{b}} \frac {SN(x'i, {x{m}}_{j})}{N_b} \lt 0.5 ]!]$$
+$$ASR_{mal} = \cfrac {1}{N_a}\sum\limits_{i=0}^{N_{a}} [[ \sum\limits_{j=0}^{N_{b}} \frac {SN(x'i, {x{m}}_{j})}{N_b} \lt 0.5 ]]$$
 
 where $SN(\cdot)$ is the Siamese Network model, ${x_{b}}$, ${x_{m}}$, and $x'$ represent benign samples in the training set, malicious samples in the training set, and adversarial samples, respectively, $N_b$, $N_m$, and $N_a$ represent the number of benign samples in the training set, the number of malicious samples in the training set, and the number of adversarial samples, respectively. $[![\cdot ]!]$ represents a conditional function that returns 1 if the condition is met, or 0 otherwise.
 
